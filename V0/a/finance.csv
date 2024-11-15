@@ -1,0 +1,3 @@
+date,detail,category,amount,dr_cr,balance
+14-11-2024,Initial Balance,--,100.0,debit,100.0
+14-11-2024,Milk,Groceries,22,credit,78.0

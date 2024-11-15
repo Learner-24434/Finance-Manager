@@ -1,0 +1,94 @@
+date,detail,category,amount,dr_cr,balance
+02-11-2024,Initial Balance,--,100.0,debit,100.0
+03-11-2024,Milk,Groceries,33,credit,67.0
+03-11-2024,Baba,Loan,50,credit,17.0
+03-11-2024,Movie,Entertainment,50,credit,-33.0
+04-11-2024,Ali,Loan,100,debit,67.0
+05-11-2024,Electricity Bill,Utilities,40,credit,27.0
+06-11-2024,Online Course Fee,Education,80,credit,-53.0
+07-11-2024,Monthly Paycheck,Salary,2000,debit,1947.0
+08-11-2024,Supermarket Shop,Groceries,75,credit,1872.0
+09-11-2024,New Jacket,Clothing,120,credit,1752.0
+10-11-2024,Gasoline,Transportation,60,credit,1692.0
+11-11-2024,Dinner at Restaurant,Dining out,45,credit,1647.0
+12-11-2024,Gift for Friend,Miscellaneous,30,credit,1617.0
+13-11-2024,Books,Education,45,credit,1572.0
+14-11-2024,Water Bill,Utilities,25,credit,1547.0
+15-11-2024,Cinema Tickets,Entertainment,30,credit,1517.0
+16-11-2024,Bus Pass,Transportation,20,credit,1497.0
+17-11-2024,Lunch Out,Dining out,25,credit,1472.0
+18-11-2024,Winter Coat,Clothing,150,credit,1322.0
+19-11-2024,Stationery,Education,15,credit,1307.0
+20-11-2024,Internet Bill,Utilities,40,credit,1267.0
+21-11-2024,Gym Membership,Entertainment,60,credit,1207.0
+22-11-2024,Taxi Fare,Transportation,35,credit,1172.0
+23-11-2024,Coffee Out,Dining out,10,credit,1162.0
+24-11-2024,Monthly Savings,--,200,debit,1362.0
+25-11-2024,Car Loan Payment,Loan,300,credit,1062.0
+26-11-2024,Groceries,Groceries,80,credit,982.0
+27-11-2024,Mobile Bill,Utilities,50,credit,932.0
+28-11-2024,Online Subscription,Entertainment,10,credit,922.0
+29-11-2024,T-shirt,Clothing,20,credit,902.0
+30-11-2024,Gas Refill,Transportation,30,credit,872.0
+01-12-2024,Dinner Date,Dining out,60,credit,812.0
+02-12-2024,Birthday Gift,Miscellaneous,100,credit,712.0
+03-12-2024,Tuition Fee,Education,200,credit,512.0
+04-12-2024,Electricity Bill,Utilities,45,credit,467.0
+05-12-2024,Concert Tickets,Entertainment,75,credit,392.0
+06-12-2024,Bus Ticket,Transportation,15,credit,377.0
+07-12-2024,Breakfast Out,Dining out,20,credit,357.0
+08-12-2024,New Shoes,Clothing,90,credit,267.0
+09-12-2024,Magazine Subscription,Education,20,credit,247.0
+10-12-2024,Water Bill,Utilities,30,credit,217.0
+11-12-2024,Movie Streaming,Entertainment,12,credit,205.0
+12-12-2024,Gasoline,Transportation,50,credit,155.0
+13-12-2024,Lunch Meeting,Dining out,30,credit,125.0
+14-12-2024,Birthday Celebration,Miscellaneous,70,credit,55.0
+15-12-2024,Monthly Paycheck,Salary,2100,debit,2155.0
+16-12-2024,Groceries,Groceries,95,credit,2060.0
+17-12-2024,Internet Bill,Utilities,55,credit,2005.0
+18-12-2024,Play Tickets,Entertainment,40,credit,1965.0
+19-12-2024,Taxi Ride,Transportation,25,credit,1940.0
+20-12-2024,Family Dinner,Dining out,85,credit,1855.0
+21-12-2024,Winter Hat,Clothing,30,credit,1825.0
+22-12-2024,Books,Education,65,credit,1760.0
+23-12-2024,Electricity Bill,Utilities,60,credit,1700.0
+24-12-2024,Concert,Entertainment,95,credit,1605.0
+25-12-2024,Parking Fee,Transportation,10,credit,1595.0
+26-12-2024,Holiday Meal,Dining out,120,credit,1475.0
+27-12-2024,Charity Donation,Miscellaneous,100,credit,1375.0
+28-12-2024,Tuition Fee,Education,250,credit,1125.0
+29-12-2024,Water Bill,Utilities,35,credit,1090.0
+30-12-2024,Cinema Night,Entertainment,20,credit,1070.0
+31-12-2024,Taxi Fare,Transportation,15,credit,1055.0
+01-01-2025,New Year Dinner,Dining out,110,credit,945.0
+02-01-2025,Stationery,Education,30,credit,915.0
+03-01-2025,Electricity Bill,Utilities,40,credit,875.0
+04-01-2025,Music Concert,Entertainment,55,credit,820.0
+05-01-2025,Subway Ticket,Transportation,10,credit,810.0
+06-01-2025,Coffee with Friend,Dining out,15,credit,795.0
+07-01-2025,Winter Coat,Clothing,120,credit,675.0
+08-01-2025,Online Course,Education,90,credit,585.0
+09-01-2025,Mobile Bill,Utilities,45,credit,540.0
+10-01-2025,Game Tickets,Entertainment,60,credit,480.0
+11-01-2025,Bus Fare,Transportation,20,credit,460.0
+12-01-2025,Lunch Out,Dining out,35,credit,425.0
+13-01-2025,Gift for Family,Miscellaneous,80,credit,345.0
+14-01-2025,Monthly Paycheck,Salary,2200,debit,2545.0
+15-01-2025,Supermarket Shop,Groceries,85,credit,2460.0
+16-01-2025,Internet Bill,Utilities,50,credit,2410.0
+17-01-2025,Theater Tickets,Entertainment,40,credit,2370.0
+18-01-2025,Gasoline,Transportation,60,credit,2310.0
+19-01-2025,Dinner with Friends,Dining out,75,credit,2235.0
+20-01-2025,Jacket,Clothing,110,credit,2125.0
+21-01-2025,Books,Education,40,credit,2085.0
+22-01-2025,Electricity Bill,Utilities,55,credit,2030.0
+23-01-2025,Cinema Tickets,Entertainment,25,credit,2005.0
+24-01-2025,Train Fare,Transportation,20,credit,1985.0
+25-01-2025,Dinner Out,Dining out,50,credit,1935.0
+26-01-2025,Charity Donation,Miscellaneous,90,credit,1845.0
+27-01-2025,Course Fee,Education,100,credit,1745.0
+28-01-2025,Water Bill,Utilities,25,credit,1720.0
+29-01-2025,Amusement Park,Entertainment,70,credit,1650.0
+30-01-2025,Taxi Ride,Transportation,30,credit,1620.0
+31-01-2025,Brunch,Dining out,40,credit,1580.0
