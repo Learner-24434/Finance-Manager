@@ -215,76 +215,79 @@ def get_info(name, item, print_res = True):
 
 def finance(name, action = 'append', date = None, detail = None, category = None, amount = None, dr_cr = None, gui = False):
     os.chdir(name)
-    with open('finance.csv', 'r') as file:
-        reader = csv.DictReader(file)
+    reader = list(csv.DictReader(open('finance.csv', 'r')))
 
-        if action =='read':
-            table_data = []
-            for row in reader:
-                table_data.append([row['date'], row['detail'], row['category'], row['amount'], row['dr_cr'].title(), row['balance']])
-            if len(table_data) > 0:
-                print(tab.tabulate(table_data, headers=['Date', 'Detail', 'Category', 'Amount', 'Dr/Cr', 'Balance'], tablefmt='grid'))
-                return
-            print('\nNo data available.')
+    if action =='read':
+        table_data = []
+        for row in reader:
+            table_data.append([row['id'], row['date'], row['detail'], row['category'], row['amount'], row['dr_cr'].title(), row['balance']])
+        if len(table_data) > 0:
+            print(tab.tabulate(table_data, headers=['ID', 'Date', 'Detail', 'Category', 'Amount', 'Dr/Cr', 'Balance'], tablefmt='grid'))
+            return
+        print('\nNo data available.')
 
-        elif action == 'append':
-            balance = float([row['balance'] for row in reader][-1])
+    elif action == 'append':
 
-            if not gui:
-                date = input('Date: ')
-                detail = input('Detail: ')
-                categories = ['Loan', 'Education', 'Salary', 'Groceries', 'Utilities','Entertainment', 'Clothing', 'Transportation', 'Dining out', 'Miscellaneous']
-                while True:
-                    category = input('Choose from: \n' + '\n'.join(categories)+'\n'+'Category: ')
-                    if category.title() in categories:
-                        break
-                    else:
-                        print('Invalid category.')
-                while True:
-                    try:
-                        amount = float(input('Amount: '))
-                        
-                        break
-                    except:
-                        print('Invalid amount.')
-                dr_cr = input('Debit or credit: ')
-                while dr_cr not in ['debit', 'credit']:
-                    dr_cr = input('Debit or credit: ')
-                if dr_cr == 'credit' and amount > balance:
-                    print('\nInsufficient balance.')
-                    return
-            
-            if convert_Date(date) == False:
-                if gui:
-                    os.chdir(os.pardir)
-                    return 'Invalid date.'
+        balance = float([row['balance'] for row in reader][-1])
+        id = int([row['id'] for row in reader][-1])+1
+
+        if not gui:
+            date = input('Date: ')
+            detail = input('Detail: ')
+            categories = ['Loan', 'Education', 'Salary', 'Groceries', 'Utilities','Entertainment', 'Clothing', 'Transportation', 'Dining out', 'Miscellaneous']
+            while True:
+                category = input('Choose from: \n' + '\n'.join(categories)+'\n'+'Category: ')
+                if category.title() in categories:
+                    break
                 else:
-                    os.chdir(os.pardir)
-                    print('Invalid date.')
-                    return
-            
-            
-            if dr_cr == 'credit':
-                if float(amount) > balance:
-                    os.chdir(os.pardir)
-                    return 'Insufficient balance.'
-                balance-=float(amount)
-            else:
-                balance += float(amount)
-
-            with open('finance.csv', 'a') as file:
-                writer = csv.DictWriter(file, fieldnames = ['date', 'detail', 'category', 'amount', 'dr_cr', 'balance'])
-                writer.writerow({'date': date, 'detail': detail, 'category' : category, 'amount': amount,'dr_cr': dr_cr, 'balance': balance})
+                    print('Invalid category.')
+            while True:
+                try:
+                    amount = float(input('Amount: '))
+                    
+                    break
+                except:
+                    print('Invalid amount.')
+            dr_cr = input('Debit or credit: ')
+            while dr_cr not in ['debit', 'credit']:
+                dr_cr = input('Debit or credit: ')
+            if dr_cr == 'credit' and amount > balance:
+                print('\nInsufficient balance.')
+                return
+        date = convert_Date(date)
+        if date == False:
             if gui:
                 os.chdir(os.pardir)
-                return 'Transaction added.'
+                return 'Invalid date.'
             else:
                 os.chdir(os.pardir)
-                print('\nTransaction recorded.')
+                print('Invalid date.')
+                return
+
+        
+        
+        if dr_cr == 'credit':
+            if float(amount) > balance:
+                os.chdir(os.pardir)
+                return 'Insufficient balance.'
+            balance-=float(amount)
+        else:
+            balance += float(amount)
+        
+        with open('finance.csv', 'a') as file:
+            writer = csv.DictWriter(file, fieldnames = ['id', 'date', 'detail', 'category', 'amount', 'dr_cr', 'balance'])
+            writer.writerow({'id' : id,'date': date, 'detail': detail, 'category' : category, 'amount': amount,'dr_cr': dr_cr, 'balance': balance})
+        if gui:
+            os.chdir(os.pardir)
+            return 'Transaction added.'
+        else:
+            os.chdir(os.pardir)
+            print('\nTransaction recorded.')
 
 def convert_Date(date):
     try:
-        return datetime_date(int(date.split('-')[2]), int(date.split('-')[1]), int(date.split('-')[0]))
+        date = datetime_date(int(date.split('-')[2]), int(date.split('-')[1]), int(date.split('-')[0]))
+        return date.strftime("%d-%m-%Y")
     except:
         return False
 
@@ -357,12 +360,16 @@ def stats(name, gui = False):
 
 def search_cli(name, domain,data = None, gui = False):
     os.chdir(name)
+    
 
     if domain == 'diary':
         df = pd.read_csv('diary.csv')
 
         if not(gui):
-            data = {'date' : input('Date (Leave empty for any) : '), 'category' : input('Category (Leave empty for any) : ')}
+            data = {
+                'date' : input('Date (Leave empty for any) : '), 
+                'category' : input('Category (Leave empty for any) : ')
+                }
 
         query = ' & '.join([f"{key} == '{value}'" for key, value in data.items() if value])
         if query == '':
@@ -384,10 +391,21 @@ def search_cli(name, domain,data = None, gui = False):
         df = pd.read_csv("finance.csv")
 
         if not(gui):
-            try:
-                data = {'date' : input('Date (Leave empty for any) : '), 'detail' : input('Detail (Leave empty for any) : '), 'amount' : int(input('Amount (Leave empty for any) : ')), 'dr_cr': input('Debit or Credit (Leave empty for any) : ')}
-            except:
-                sys.exit("Amount should be a number")
+            data = {'date' : input('Date (Leave empty for any) : '), 'detail' : input('Detail (Leave empty for any) : '), 'amount' : input('Amount (Leave empty for any) : '), 'dr_cr': input('Debit or Credit (Leave empty for any) : ')}
+            if data['amount'] != '':
+                try:
+                    data['amount'] = float(data['amount'])
+                except:
+                    print("Amount has to be a number.")
+                    sys.exit(1)
+        
+        if data['date'] != '':
+            date = convert_Date(data['date'])
+            if date == False:
+                if not gui:
+                    print("Invalid date")
+
+
         query = []
         for key, value in data.items():
             if value!= '':
@@ -407,7 +425,7 @@ def search_cli(name, domain,data = None, gui = False):
             return results
 
         print(f'{len(results)} Results\n----------------------------------')
-        print(tab.tabulate(results, tablefmt='grid', headers=["Sr NO.", "Date", "Detail", "Amount", "Dr/Cr", "Balance"]))
+        print(tab.tabulate(results, tablefmt='grid', headers=["ID", "Date", "Detail","Category" ,"Amount", "Dr/Cr", "Balance"]))
 
         os.chdir(os.pardir)
         return
