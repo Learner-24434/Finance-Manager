@@ -1,4 +1,4 @@
-# Life-Manager (OUTDATED)
+# Finance-Manager (OUTDATED)
 ## Overview
 This is a python program that has GUI and CLI functionality. Its main purpose is to keep track of diary entries, financial transactions and provide simple statistics.
 
@@ -17,8 +17,6 @@ This is a python program that has GUI and CLI functionality. Its main purpose is
     - `python project.py <-f/--finance> append` : Adds a transaction taking the follwong paramaters : Date, detail, amount and debit/credit.
     - `python project.py <-f/--finances> read` : Displays a table of all the financial transactions using tabulate.
 
-
-
 - `python project.py <-st/--stats>` : Provides the following statistics regarding the financila postion : 
     - Total money spent in a month
     - Total money recieved in a month
@@ -29,4 +27,5 @@ This is a python program that has GUI and CLI functionality. Its main purpose is
     - `python project.py <-se/--search> diary` : Asks for some filter parameters (Date, Caategory) and returns search reults in a table using tabulate.
 - `python project.py <-u/--gui>` : Acivates GUI mode.
 
-The GUI demo has been given in this [video](https://youtu.be/JqWSV4M_jGY).
+## LICENSE
+Refer to the 'LICENSE' file.

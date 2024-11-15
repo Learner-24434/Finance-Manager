@@ -84,9 +84,9 @@ def create_acc(name, password, bal, gui = False):
             d_writer = csv.DictWriter(db, fieldnames = ['date', 'category', 'entry'])
             d_writer.writeheader()
         with open('finance.csv', 'a') as fin:
-            fin_writer = csv.DictWriter(fin, fieldnames = ['date', 'detail', 'category', 'amount', 'dr_cr',  'balance'])
+            fin_writer = csv.DictWriter(fin, fieldnames = ['id', 'date', 'detail', 'category', 'amount', 'dr_cr',  'balance'])
             fin_writer.writeheader()
-            fin_writer.writerow({'date': datetime.now().today().strftime('%d-%m-%Y'), 'detail': 'Initial Balance', 'category' : '--', 'amount': bal, 'dr_cr': 'debit', 'balance': bal})
+            fin_writer.writerow({'id':0,'date': datetime.now().today().strftime('%d-%m-%Y'), 'detail': 'Initial Balance', 'category' : '--', 'amount': bal, 'dr_cr': 'debit', 'balance': bal})
         os.chdir(os.pardir)
         return True
 
