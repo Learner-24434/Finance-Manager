@@ -16,7 +16,8 @@ import matplotlib.pyplot as plt
 Run the following command to install all dependencies:
 pip install -r requirements.txt
 
-
+TODO:
+Add deleting and editting functionality to financial transaction. (GUI and CLI)
 
 Sample account with sample data:
 Username : a
@@ -287,7 +288,7 @@ def finance(name, action = 'append', date = None, detail = None, category = None
 def convert_Date(date):
     try:
         date = datetime_date(int(date.split('-')[2]), int(date.split('-')[1]), int(date.split('-')[0]))
-        return date.strftime("%d-%m-%Y")
+        return datetime.strptime(date.strftime('%d-%m-%Y'), '%d-%m-%Y')
     except:
         return False
 
@@ -737,7 +738,7 @@ def GUI():
 
         title.configure(text = 'Finance')
 
-        frame = CTkScrollableFrame(main, width = 790, height = 515, fg_color='grey', corner_radius=0, border_width=1, scrollbar_button_color='dark grey')
+        frame = CTkScrollableFrame(main, width = 790, height = 500, fg_color='grey', corner_radius=0, border_width=1, scrollbar_button_color='dark grey')
         frame.pack_propagate(False)
         frame.place(x=0, y = 95)
 
